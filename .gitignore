@@ -1,0 +1,16 @@
+# Terraform files - these are generated automatically, not needed in Git
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/lambda/counter.zip
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+
+# AWS credentials - never commit these
+.aws/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
