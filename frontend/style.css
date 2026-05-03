@@ -681,3 +681,33 @@ a { text-decoration: none; color: inherit; }
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── PARAGRAPH & SPACING RESET FOR MOBILE ──────── */
+/* Targets all screens under 768px                  */
+@media (max-width: 768px) {
+  /* Reset constrained max-widths that cause awkward spacing on small screens */
+  .hero-desc,
+  .section-sub,
+  .contact-desc,
+  .arch-card p,
+  .project-desc {
+    max-width: 100% !important;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Reduce large bottom margins on section intros */
+  .section-sub { margin-bottom: 1.5rem; }
+  .hero-desc { margin-bottom: 0.75rem; }
+  .contact-desc { margin-bottom: 1.5rem; }
+
+  /* Reduce oversized section top/bottom padding */
+  .projects { padding-top: 50px; padding-bottom: 50px; }
+  .arch     { padding-top: 50px; padding-bottom: 50px; }
+  .contact  { padding-top: 60px; padding-bottom: 60px; }
+
+  /* Ensure nothing overflows the viewport horizontally */
+  * { max-width: 100vw; }
+  body { overflow-x: hidden; }
+}
