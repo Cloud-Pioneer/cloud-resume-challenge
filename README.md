@@ -65,8 +65,4 @@ This project demonstrates the ability to:
 
 # What I Learned
  -How to architect a fully serverless application on AWS from scratch
- -Writing Terraform that provisions real, interdependent AWS resources
- -How CloudFront Origin Access Control secures S3 without public bucket policies
- -Building a CI/CD pipeline with GitHub Actions that deploys to AWS in seconds
- -Debugging IAM permission errors, CORS issues, and Terraform state conflicts
- -The difference between infrastructure that works in a tutorial and infrastructure that works in production
+ - Writing Terrafrom that provisions real, independent AWS services. 
