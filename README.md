@@ -1,0 +1,1 @@
+This is my implementation of the Cloud Resume Challenge — a hands-on project that demonstrates real cloud engineering skills by building and deploying a live portfolio website using AWS, Terraform, Python, and GitHub Actions.
