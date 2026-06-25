@@ -1,8 +1,3 @@
-// Visitor Counter
-// This calls the API Gateway endpoint which triggers Lambda → DynamoDB
-// The API_URL below will be replaced with your real URL after Terraform deploys
-
-$script = @'
 const API_URL = 'https://xh1qa6rgff.execute-api.eu-west-1.amazonaws.com/visitor';
 
 async function updateVisitorCount() {
@@ -18,7 +13,7 @@ async function updateVisitorCount() {
     }
   } catch (err) {
     const counter = document.getElementById('visitor-count');
-    if (counter) counter.textContent = '—';
+    if (counter) counter.textContent = '-';
   }
 }
 
@@ -38,8 +33,6 @@ window.addEventListener('scroll', () => {
     if (window.scrollY >= section.offsetTop - 100) current = section.id;
   });
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--blue)' : '';
+    link.style.color = link.getAttribute('href') === '#' + current ? 'var(--blue)' : '';
   });
 });
-'@
-$script | Set-Content "C:\Users\User\cloud-resume\frontend\script.js" -Encoding UTF8
