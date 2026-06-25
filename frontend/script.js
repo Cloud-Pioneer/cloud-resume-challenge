@@ -2,7 +2,7 @@
 // This calls the API Gateway endpoint which triggers Lambda → DynamoDB
 // The API_URL below will be replaced with your real URL after Terraform deploys
 
-const API_URL = 'YOUR_API_GATEWAY_URL_HERE'; // "https://xh1qa6rgff.execute-api.eu-west-1.amazonaws.com/visitor"
+const API_URL = 'https://xh1qa6rgff.execute-api.eu-west-1.amazonaws.com/visitor';
 
 async function updateVisitorCount() {
   try {
