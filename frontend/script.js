@@ -2,6 +2,7 @@
 // This calls the API Gateway endpoint which triggers Lambda → DynamoDB
 // The API_URL below will be replaced with your real URL after Terraform deploys
 
+$script = @'
 const API_URL = 'https://xh1qa6rgff.execute-api.eu-west-1.amazonaws.com/visitor';
 
 async function updateVisitorCount() {
@@ -16,17 +17,13 @@ async function updateVisitorCount() {
       counter.textContent = data.visitor_count.toLocaleString();
     }
   } catch (err) {
-    // Silently fail — visitor count is a nice-to-have, not critical
     const counter = document.getElementById('visitor-count');
     if (counter) counter.textContent = '—';
-    console.log('Visitor counter not yet connected to backend.');
   }
 }
 
-// Run on page load
 updateVisitorCount();
 
-// Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -35,16 +32,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Highlight nav links on scroll
-const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(section => {
+  document.querySelectorAll('section[id]').forEach(section => {
     if (window.scrollY >= section.offsetTop - 100) current = section.id;
   });
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.style.color = link.getAttribute('href') === `#${current}`
-      ? 'var(--blue)'
-      : '';
+    link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--blue)' : '';
   });
 });
+'@
+$script | Set-Content "C:\Users\User\cloud-resume\frontend\script.js" -Encoding UTF8
